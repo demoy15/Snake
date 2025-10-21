@@ -24,8 +24,7 @@ public class GameField extends JPanel implements ActionListener {
     private boolean down = true;
     private boolean inGame =true;
     
-    
-    
+
     public GameField(){
       setBackground(Color.lightGray);
       loadImages();
@@ -33,8 +32,7 @@ public class GameField extends JPanel implements ActionListener {
       addKeyListener(new FieldKeyListener());
       setFocusable(true);
     }
-    
-    
+
     
     public void initGame(){
         dots = 3;
@@ -68,9 +66,7 @@ public class GameField extends JPanel implements ActionListener {
         }
         else{
             String str = "Game Over";
-           // Font f = new Font("Arial",14,Font.BOLD);
             g.setColor(Color.red);
-          //  g.setFont(f);
             g.drawString(str,125,SIZE/2);
         }
     }
@@ -105,8 +101,9 @@ public class GameField extends JPanel implements ActionListener {
     
     public void checkCollisions(){
         for(int i = dots;i>0;i--){
-            if(i<4 && x[0]==x[i]&&y[0]==y[i]){
-                inGame=false;
+            if (i < 4 && x[0] == x[i] && y[0] == y[i]) {
+                inGame = false;
+                break;
             }
         }
         if(x[0]>SIZE){
@@ -140,7 +137,7 @@ public class GameField extends JPanel implements ActionListener {
             if(key == KeyEvent.VK_LEFT && !right){
                 left=true;
                 up=false;
-                down = false; 
+                down = false;
                 right = false;
             }
             if(key == KeyEvent.VK_RIGHT && !left){
